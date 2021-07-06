@@ -5,6 +5,11 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class StationeryDB {
+
+    /*
+    * This is the items database for our stationery
+    * @author Abd Alrahim Zakaria - 05.07.2021
+    */
     HashMap<String, Integer> stationeryItemsFrequency = new HashMap<>();
     HashSet<String> stationeryItems = new HashSet<>();
     static Scanner scanner = new Scanner(System.in);
@@ -20,21 +25,23 @@ public class StationeryDB {
             if (operation == 1)
                 object.addItem();
             else if (operation == 2)
-                System.out.print(object.getFrequencyOfItem() +" of said item\n");
+                System.out.print(object.getFrequencyOfItem() + " of said item\n");
             else if (operation == 3)
-                System.out.print(object.numOfItems()+"\n");
+                System.out.print(object.numOfItems() + "\n");
             else
                 System.out.println("Please enter the number of the operation!");
 
             System.out.println("Do you wish to continue? Yes/No");
-            if(scanner.next().equals("No")) {
+            if (scanner.next().equals("No")) {
                 System.out.println("Bye-bye!");
                 break;
-            }
-            else continue;
+            } else continue;
         }
     }
 
+    /*
+    * This method returns the frequency of the requested item
+    */
     public int getFrequencyOfItem() {
         System.out.println("Enter the name of the item");
         String item = scanner.next();
@@ -42,6 +49,9 @@ public class StationeryDB {
         return stationeryItemsFrequency.get(item);
     }
 
+    /*
+    * This method adds an extra item to the database
+    */
     public void addItem() {
         System.out.println("Welcome to the adding items section");
         System.out.println("Type \"Exit\" to exit");
@@ -60,6 +70,9 @@ public class StationeryDB {
         }
     }
 
+    /*
+    * This method returns the number of item types in the stationery
+    */
     public int numOfItems() {
         System.out.print("Number of items is: ");
         return stationeryItems.size();
